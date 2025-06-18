@@ -1,0 +1,8 @@
+[
+  {
+    "title": "Project Title",
+    "description": "Short description here",
+    "technologies": ["JS", "CSS", "HTML"],
+    "github": "#"
+  }
+]

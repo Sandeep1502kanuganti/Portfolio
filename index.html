@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Professional Portfolio Builder</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="portfolio-wrapper">
+    <!-- Header Section -->
+    <header class="portfolio-header">
+      <div class="header-content">
+        <div class="profile-section">
+          <div class="profile-avatar">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="profile-info">
+            <h1 contenteditable="true" id="name" class="profile-name">Your Name</h1>
+            <p contenteditable="true" id="bio" class="profile-bio">A passionate professional crafting innovative solutions...</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button id="savePortfolio" class="btn btn-primary">
+            <i class="fas fa-save"></i> Save & Share
+          </button>
+          <button id="downloadPdf" class="btn btn-secondary" style="display: none;">
+            <i class="fas fa-download"></i> Download PDF
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="portfolio-main" id="portfolio-container">
+      <!-- Contact Information Section -->
+      <section class="portfolio-section">
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-address-card"></i> Contact Information
+          </h2>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-item">
+            <label for="email"><i class="fas fa-envelope"></i> Email</label>
+            <input type="email" id="email" placeholder="your.email@example.com" class="contact-input" />
+          </div>
+          <div class="contact-item">
+            <label for="phone"><i class="fas fa-phone"></i> Phone</label>
+            <input type="tel" id="phone" placeholder="+1 (555) 123-4567" class="contact-input" />
+          </div>
+          <div class="contact-item">
+            <label for="linkedin"><i class="fab fa-linkedin"></i> LinkedIn</label>
+            <input type="url" id="linkedin" placeholder="https://linkedin.com/in/yourprofile" class="contact-input" />
+          </div>
+          <div class="contact-item">
+            <label for="github"><i class="fab fa-github"></i> GitHub</label>
+            <input type="url" id="github" placeholder="https://github.com/yourusername" class="contact-input" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section class="portfolio-section">
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-code"></i> Technical Skills
+          </h2>
+          <div class="skill-input-group">
+            <input type="text" id="new-skill" placeholder="Add a new skill" class="skill-input" />
+            <button id="addSkill" class="btn btn-outline">
+              <i class="fas fa-plus"></i> Add
+            </button>
+          </div>
+        </div>
+        <div class="skills-grid" id="skills-list"></div>
+      </section>
+
+      <!-- Education Section -->
+      <section class="portfolio-section">
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-graduation-cap"></i> Education
+          </h2>
+          <button id="addEducation" class="btn btn-outline">
+            <i class="fas fa-plus"></i> Add Education
+          </button>
+        </div>
+        <div class="education-list" id="education-list"></div>
+      </section>
+
+      <!-- Certifications Section -->
+      <section class="portfolio-section">
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-certificate"></i> Certifications
+          </h2>
+          <button id="addCertification" class="btn btn-outline">
+            <i class="fas fa-plus"></i> Add Certification
+          </button>
+        </div>
+        <div class="certifications-list" id="certifications-list"></div>
+      </section>
+
+      <!-- Projects Section -->
+      <section class="portfolio-section">
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-project-diagram"></i> Featured Projects
+          </h2>
+          <button id="addProject" class="btn btn-outline">
+            <i class="fas fa-plus"></i> Add Project
+          </button>
+        </div>
+        <div class="projects-grid" id="projects"></div>
+      </section>
+
+      <!-- Internships Section -->
+      <section class="portfolio-section">
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-briefcase"></i> Internships & Experience
+          </h2>
+          <button id="addInternship" class="btn btn-outline">
+            <i class="fas fa-plus"></i> Add Experience
+          </button>
+        </div>
+        <div class="internships-list" id="internships-list"></div>
+      </section>
+
+      <!-- Achievements Section -->
+      <section class="portfolio-section">
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-trophy"></i> Achievements & Awards
+          </h2>
+          <button id="addAchievement" class="btn btn-outline">
+            <i class="fas fa-plus"></i> Add Achievement
+          </button>
+        </div>
+        <div class="achievements-list" id="achievements-list"></div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="portfolio-footer">
+      <div class="footer-content">
+        <p>&copy; 2025 Portfolio Builder. Crafted with passion.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modal for adding Education -->
+  <div id="educationModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><i class="fas fa-graduation-cap"></i> Add Education</h3>
+        <span class="close" data-modal="educationModal">&times;</span>
+      </div>
+      <div class="modal-body">
+        <input type="text" id="edu-degree" placeholder="Degree (e.g., Bachelor of Science in Computer Science)" />
+        <input type="text" id="edu-institution" placeholder="Institution Name" />
+        <input type="text" id="edu-year" placeholder="Year (e.g., 2020-2024)" />
+        <input type="text" id="edu-grade" placeholder="Grade/GPA (optional)" />
+        <button id="saveEducation" class="btn btn-primary">Add Education</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for adding Certification -->
+  <div id="certificationModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><i class="fas fa-certificate"></i> Add Certification</h3>
+        <span class="close" data-modal="certificationModal">&times;</span>
+      </div>
+      <div class="modal-body">
+        <input type="text" id="cert-name" placeholder="Certification Name" />
+        <input type="text" id="cert-issuer" placeholder="Issuing Organization" />
+        <input type="text" id="cert-date" placeholder="Date Obtained" />
+        <input type="url" id="cert-url" placeholder="Certificate URL (optional)" />
+        <button id="saveCertification" class="btn btn-primary">Add Certification</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for adding Internship -->
+  <div id="internshipModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><i class="fas fa-briefcase"></i> Add Experience</h3>
+        <span class="close" data-modal="internshipModal">&times;</span>
+      </div>
+      <div class="modal-body">
+        <input type="text" id="intern-title" placeholder="Position Title" />
+        <input type="text" id="intern-company" placeholder="Company Name" />
+        <input type="text" id="intern-duration" placeholder="Duration (e.g., Jun 2023 - Aug 2023)" />
+        <textarea id="intern-description" placeholder="Description of your role and achievements..."></textarea>
+        <button id="saveInternship" class="btn btn-primary">Add Experience</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for adding Achievement -->
+  <div id="achievementModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><i class="fas fa-trophy"></i> Add Achievement</h3>
+        <span class="close" data-modal="achievementModal">&times;</span>
+      </div>
+      <div class="modal-body">
+        <input type="text" id="achievement-title" placeholder="Achievement Title" />
+        <input type="text" id="achievement-date" placeholder="Date" />
+        <textarea id="achievement-description" placeholder="Description of the achievement..."></textarea>
+        <button id="saveAchievement" class="btn btn-primary">Add Achievement</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase + html2pdf libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script type="module" src="script.js"></script>
+</body>
+</html>
